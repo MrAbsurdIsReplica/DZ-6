@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой проект на GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 100px;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        .status {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Добро пожаловать!</h1>
+    <div class="container">
+        <h2>Мой проект успешно опубликован на GitHub Pages</h2>
+        <p>Версия: <span class="status">v1.0.0</span></p>
+        <p>Этот сайт создан в рамках выполнения задания по настройке GitHub</p>
+        <button onclick="showMessage()">Нажми меня!</button>
+        <p id="message" style="margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').innerHTML = '🎉 GitHub Pages работает отлично!';
+        }
+    </script>
+</body>
+</html>
