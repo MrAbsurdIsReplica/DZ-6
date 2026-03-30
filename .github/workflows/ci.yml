@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+
+# Триггеры для запуска workflow
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+# Задания (jobs)
+jobs:
+  # Задание 1: Проверка кода
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Шаг 1: Клонирование репозитория
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Шаг 2: Проверка структуры проекта
+    - name: Check project structure
+      run: |
+        echo "📁 Проверка структуры проекта..."
+        ls -la
+        echo "✅ Проект успешно склонирован"
+
+    # Шаг 3: Проверка наличия .gitignore
+    - name: Check .gitignore exists
+      run: |
+        if [ -f ".gitignore" ]; then
+          echo "✅ .gitignore найден"
+          echo "Содержимое .gitignore:"
+          cat .gitignore
+        else
+          echo "⚠️ .gitignore не найден"
+          exit 1
+        fi
+
+    # Шаг 4: Проверка наличия index.html для GitHub Pages
+    - name: Check index.html for GitHub Pages
+      run: |
+        if [ -f "index.html" ]; then
+          echo "✅ index.html найден"
+          echo "HTML-контент успешно подготовлен для публикации"
+        else
+          echo "⚠️ index.html не найден"
+        fi
+
+    # Шаг 5: Проверка тегов
+    - name: Check git tags
